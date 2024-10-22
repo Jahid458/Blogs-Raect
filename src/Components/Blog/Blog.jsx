@@ -1,10 +1,10 @@
-
-const Blog = ({blog}) => {
+import { CiBookmark } from "react-icons/ci";
+const Blog = ({blog,handleAddToBookMarks}) => {
   const {title,cover,author_img,author,reading_time,posted_date,hashtags} = blog
   return (
-    <div>
-      <img src={cover} alt={`Cover picture of the title ${title}`} />
-      <div className="flex justify-between">
+    <div className="mb-20">
+      <img className="w-full mb-8 rounded-2xl" src={cover} alt={`Cover picture of the title ${title}`} />
+      <div className="flex justify-between mb-4">
         <div className="flex">
             <img className="w-14" src={author_img} alt="" />
             <div className="ml-6">
@@ -15,7 +15,10 @@ const Blog = ({blog}) => {
         </div>
         <div>
           <span>{reading_time} min read</span>
-
+          <button 
+            onClick={handleAddToBookMarks}
+            className="ml-2 text-2xl text-red-600">
+            <CiBookmark /></button>
         </div>
       </div>
       <h2 className="text-4xl">{title}</h2>
